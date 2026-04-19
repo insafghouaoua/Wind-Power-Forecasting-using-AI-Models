@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/img/Favicon.png" />
+  <title>Wind Power Forecasting using AI Models</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">⟨WindAI⟩</a>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#report" class="nav-cta">Report</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="windCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <div class="hero-badge">
+        <span>🌱 Renewable Energy</span>
+        <span>⏱ Time Series</span>
+        <span>🤖 Machine Learning</span>
+      </div>
+      <h1 class="hero-title">
+        Wind Power<br /><em>Forecasting</em><br />using AI Models
+      </h1>
+      <p class="hero-sub">
+        AI-driven prediction of wind energy production using machine learning,
+        deep neural networks, and quantum AI — tested across two geographically
+        distinct datasets.
+      </p>
+      <div class="hero-btns">
+        <a href="https://github.com/insafghouaoua" target="_blank" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          View GitHub
+        </a>
+        <!--
+        <a href="#report" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View Report
+        </a>
+         -->
+        <a href="#results" class="btn btn-solid">Explore Results ↓</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">Scroll to explore</div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-label">Project Overview</div>
+      <div class="overview-grid">
+        <div class="overview-text fade-in">
+          <h2>Predicting Wind Energy with Intelligent Systems</h2>
+          <p>
+            This project aims to predict wind power generation using historical data and environmental
+            variables such as wind speed, temperature, direction, and atmospheric conditions.
+          </p>
+          <p>
+            Two real-world datasets were used — from <strong>Adrar, Algeria</strong> (6 035 records, 15-min frequency)
+            and <strong>Yalova, Turkey</strong> (50 530 records, 10-min frequency) — enabling cross-geographical
+            generalisation testing.
+          </p>
+          <p>
+            The system leverages a broad spectrum of machine learning models to generate accurate and
+            reliable forecasts, from classical statistical regression to quantum neural networks.
+          </p>
+        </div>
+        <div class="overview-stats fade-in">
+          <div class="stat-card">
+            <span class="stat-num">15</span>
+            <span class="stat-desc">AI Models Compared</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">56K+</span>
+            <span class="stat-desc">Data Records</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2</span>
+            <span class="stat-desc">Geographic Datasets</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">0.99</span>
+            <span class="stat-desc">Best R² Score</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section section-dark" id="problem">
+    <div class="container">
+      <div class="section-label">Problem Statement</div>
+      <div class="problem-grid">
+        <div class="problem-card fade-in">
+          <div class="problem-icon">⚡</div>
+          <h3>High Variability</h3>
+          <p>Wind energy production is highly variable and directly dependent on environmental conditions, making consistent supply difficult.</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-icon">🔋</div>
+          <h3>Grid Stability</h3>
+          <p>Accurate forecasting is essential for maintaining grid stability and preventing blackouts caused by sudden supply-demand imbalances.</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-icon">📊</div>
+          <h3>Resource Optimization</h3>
+          <p>Reliable predictions enable better energy management, storage allocation, and economic planning for renewable energy operators.</p>
+        </div>
+        <div class="problem-card fade-in">
+          <div class="problem-icon">🧠</div>
+          <h3>Traditional Limits</h3>
+          <p>Classical statistical methods are often insufficient for capturing the non-linear dynamics of wind power — demanding intelligent predictive systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section" id="pipeline">
+    <div class="container">
+      <div class="section-label">Methodology</div>
+      <h2 class="section-title fade-in">End-to-End AI Pipeline</h2>
+      <p class="section-sub fade-in">A rigorous six-stage process from raw data to actionable forecasts.</p>
+      <div class="pipeline-steps">
+        <div class="pipeline-step fade-in" data-step="01">
+          <div class="step-icon">🗄</div>
+          <h3>Data Collection</h3>
+          <p>Wind speed, direction, and power records from Adrar (Algeria) and Yalova (Turkey) wind farms, sampled at 10–15 min intervals.</p>
+        </div>
+        <div class="pipeline-arrow fade-in">→</div>
+        <div class="pipeline-step fade-in" data-step="02">
+          <div class="step-icon">🧹</div>
+          <h3>Data Preprocessing</h3>
+          <p>Missing value imputation via Random Forest & forward-fill; anomaly detection using Isolation Forest, One-Class SVM, LOF, and Elliptic Envelope.</p>
+        </div>
+        <div class="pipeline-arrow fade-in">→</div>
+        <div class="pipeline-step fade-in" data-step="03">
+          <div class="step-icon">⚙️</div>
+          <h3>Feature Engineering</h3>
+          <p>Derived variables: wind deviation, usability factor, effective theoretical power, day/night flag, season, and meteorological enrichment via Meteostat.</p>
+        </div>
+        <div class="pipeline-arrow fade-in">→</div>
+        <div class="pipeline-step fade-in" data-step="04">
+          <div class="step-icon">🤖</div>
+          <h3>Model Training</h3>
+          <p>15 models trained: statistical (Linear/Ridge/Lasso), boosting (XGBoost/LightGBM/GB), recurrent (RNN/LSTM/GRU), hybrid (CNN+LSTM/GRU), and Quantum AI.</p>
+        </div>
+        <div class="pipeline-arrow fade-in">→</div>
+        <div class="pipeline-step fade-in" data-step="05">
+          <div class="step-icon">🔮</div>
+          <h3>Forecasting</h3>
+          <p>Models generate short-term wind power predictions on held-out test sets for both geographic contexts.</p>
+        </div>
+        <div class="pipeline-arrow fade-in">→</div>
+        <div class="pipeline-step fade-in" data-step="06">
+          <div class="step-icon">📈</div>
+          <h3>Evaluation</h3>
+          <p>Multi-metric assessment: RMSE, MAE, R², MAPE, SMAPE — across global and per-power-range strata for both datasets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELS -->
+  <section class="section section-dark" id="models">
+    <div class="container">
+      <div class="section-label">Models Used</div>
+      <h2 class="section-title fade-in">15 Approaches, One Goal</h2>
+      <p class="section-sub fade-in">From classical statistics to cutting-edge quantum neural networks.</p>
+      <div class="models-grid">
+
+        <div class="model-group fade-in">
+          <div class="model-group-header">📐 Statistical</div>
+          <div class="model-card"><div class="model-tag stat">Linear</div><strong>Linear Regression</strong><p>Baseline model establishing a linear relationship between variables and power output.</p></div>
+          <div class="model-card"><div class="model-tag stat">Ridge</div><strong>Ridge Regression</strong><p>L2-regularised regression that stabilises coefficients for correlated inputs.</p></div>
+          <div class="model-card"><div class="model-tag stat">Lasso</div><strong>Lasso Regression</strong><p>L1-regularised regression performing automatic feature selection by zeroing coefficients.</p></div>
+        </div>
+
+        <div class="model-group fade-in">
+          <div class="model-group-header">🌲 Boosting</div>
+          <div class="model-card"><div class="model-tag boost">XGB</div><strong>XGBoost</strong><p>High-performance gradient boosted trees, excellent at handling noisy and non-linear data.</p></div>
+          <div class="model-card"><div class="model-tag boost">LGBM</div><strong>LightGBM</strong><p>Leaf-wise tree growth for faster training and lower memory usage with strong accuracy.</p></div>
+          <div class="model-card"><div class="model-tag boost">GB</div><strong>Gradient Boosting</strong><p>Ensemble of weak learners sequentially correcting residuals to minimise prediction error.</p></div>
+        </div>
+
+        <div class="model-group fade-in">
+          <div class="model-group-header">🧠 Neural Networks</div>
+          <div class="model-card"><div class="model-tag nn">RNN</div><strong>RNN (Simple + Deep)</strong><p>Recurrent architecture capturing sequential dependencies in time-series energy data.</p></div>
+          <div class="model-card"><div class="model-tag nn">LSTM</div><strong>LSTM (Simple + Deep)</strong><p>Long Short-Term Memory with forget/input/output gates for long-range temporal patterns.</p></div>
+          <div class="model-card"><div class="model-tag nn">GRU</div><strong>GRU (Simple + Deep)</strong><p>Gated Recurrent Unit — a faster, streamlined alternative to LSTM with two gates.</p></div>
+        </div>
+
+        <div class="model-group fade-in">
+          <div class="model-group-header">🔀 Hybrid & Quantum</div>
+          <div class="model-card"><div class="model-tag hybrid">CNN+LSTM</div><strong>CNN + LSTM</strong><p>Convolutional feature extraction combined with LSTM temporal modelling for complex time series.</p></div>
+          <div class="model-card"><div class="model-tag hybrid">CNN+GRU</div><strong>CNN + GRU</strong><p>Lightweight hybrid combining spatial pattern detection with efficient recurrent processing.</p></div>
+          <div class="model-card quantum-card"><div class="model-tag quantum">QNN</div><strong>Deep Hybrid QNN</strong><p>Parameterised quantum circuits + classical deep learning layers via TensorFlow Quantum. Achieves near-classical performance with fewer neurons.</p><div class="quantum-badge">⚛ Quantum AI</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="section-label">Results</div>
+      <h2 class="section-title fade-in">Model Performance</h2>
+      <p class="section-sub fade-in">
+        Gradient Boosting and XGBoost achieved <strong>R² = 0.99</strong> with RMSE ≈ 0.07 on the Algerian dataset — the top performers across both test sites.
+      </p>
+
+      <div class="results-tabs fade-in">
+        <button class="tab-btn active" data-tab="algeria">🇩🇿 Adrar, Algeria</button>
+        <button class="tab-btn" data-tab="turkey">🇹🇷 Yalova, Turkey</button>
+      </div>
+
+      <div class="charts-grid fade-in">
+        <div class="chart-card">
+          <h3>R² Score by Model</h3>
+          <div class="chart-wrap"><canvas id="r2Chart"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>RMSE by Model</h3>
+          <div class="chart-wrap"><canvas id="rmseChart"></canvas></div>
+        </div>
+        <div class="chart-card chart-full">
+          <h3>Predicted vs Actual — Best Model (Gradient Boosting, last 24h sample)</h3>
+          <div class="chart-wrap chart-wrap-tall"><canvas id="predChart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="insight-box fade-in">
+        <div class="insight-icon">🏆</div>
+        <div>
+          <strong>Key Finding:</strong> Tree-based models (XGBoost, LightGBM, Gradient Boosting) consistently outperformed all other approaches across both datasets. Neural networks and hybrid models delivered solid results, while the Quantum Hybrid QNN matched recurrent network performance using significantly fewer neurons — demonstrating the potential of quantum approaches in energy forecasting.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="section section-dark" id="demo">
+    <div class="container">
+      <div class="section-label">Interactive Demo</div>
+      <h2 class="section-title fade-in">Forecasting Simulator</h2>
+      <p class="section-sub fade-in">Simulate a wind power prediction based on typical input conditions.</p>
+
+      <div class="demo-container fade-in">
+        <div class="demo-inputs">
+          <h3>🌬 Environmental Inputs</h3>
+          <div class="input-group">
+            <label for="windSpeed">Wind Speed (m/s)</label>
+            <input type="range" id="windSpeed" min="0" max="25" value="10" step="0.5" />
+            <span class="range-val" id="windSpeedVal">10.0</span>
+          </div>
+          <div class="input-group">
+            <label for="windDir">Wind Direction (°)</label>
+            <input type="range" id="windDir" min="0" max="359" value="60" step="1" />
+            <span class="range-val" id="windDirVal">60°</span>
+          </div>
+          <div class="input-group">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="range" id="temperature" min="-10" max="45" value="20" step="1" />
+            <span class="range-val" id="temperatureVal">20°C</span>
+          </div>
+          <div class="input-group">
+            <label for="season">Season</label>
+            <select id="season">
+              <option value="spring">🌸 Spring</option>
+              <option value="summer" selected>☀️ Summer</option>
+              <option value="autumn">🍂 Autumn</option>
+              <option value="winter">❄️ Winter</option>
+            </select>
+          </div>
+          <button class="btn btn-solid btn-full" id="predictBtn">Run Prediction →</button>
+        </div>
+
+        <div class="demo-output" id="demoOutput">
+          <h3>⚡ Predicted Output</h3>
+          <div class="output-main">
+            <div class="output-value" id="outputValue">— MW</div>
+            <div class="output-label">Estimated Power Generation</div>
+          </div>
+          <div class="output-meta" id="outputMeta">
+            <div class="meta-item"><span>Model</span><strong>Gradient Boosting</strong></div>
+            <div class="meta-item"><span>Confidence</span><strong id="outputConf">—</strong></div>
+            <div class="meta-item"><span>Status</span><strong id="outputStatus">Awaiting input</strong></div>
+          </div>
+          <div class="output-bar-wrap">
+            <div class="output-bar" id="outputBar" style="width: 0%"></div>
+          </div>
+          <p class="demo-note">⚠ This is a UI simulation for portfolio demonstration purposes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORT 
+  <section class="section" id="report">
+    <div class="container">
+      <div class="section-label">Documentation</div>
+      <div class="report-grid fade-in">
+        <div class="report-text">
+          <h2>Full Research Report</h2>
+          <p>A detailed technical report covering the complete methodology, dataset descriptions, anomaly detection experiments, feature engineering decisions, model architectures, training procedures, and comprehensive experimental results across both datasets.</p>
+          <p>Includes per-range power analysis, metric sensitivity discussions, and comparative insights across 15 models.</p>
+          <a href="#" class="btn btn-solid">Download Report (PDF)</a>
+        </div>
+        <div class="report-preview">
+          <div class="report-card">
+            <div class="report-icon">📄</div>
+            <div>
+              <strong>Report</strong>
+              <span>Wind Power Forecasting using AI Models</span>
+              <span class="report-meta">Chapters 4–6 · Results · Evaluation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+  <!-- SOURCE CODE -->
+  <section class="section section-dark" id="code">
+    <div class="container">
+      <div class="section-label">Source Code</div>
+      <h2 class="section-title fade-in">Notebooks & Implementation</h2>
+      <p class="section-sub fade-in">The project is fully reproducible with detailed Jupyter notebooks covering every stage of the pipeline.</p>
+      <div class="code-grid fade-in">
+        <a href="https://github.com/insafghouaoua/Wind-Power-Forecasting-using-AI-Models/tree/main/notebooks" target="_blank" class="code-card">
+          <div class="code-card-icon">📁</div>
+          <h3>Full Repository</h3>
+          <p>contains raw data, detailed preprocessing steps, preprocessed data, exploratory analysis, variable selection, data splitting and preparation, as well as step-by-step notebooks for modeling and evaluation.</p>
+          <span class="code-link">View on GitHub →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-label">Skills Demonstrated</div>
+      <h2 class="section-title fade-in">Technical Expertise</h2>
+      <div class="skills-wrap fade-in">
+        <div class="skill-pill">⏱ Time Series Analysis</div>
+        <div class="skill-pill">🤖 Machine Learning</div>
+        <div class="skill-pill">🧹 Data Preprocessing</div>
+        <div class="skill-pill">⚙️ Feature Engineering</div>
+        <div class="skill-pill">🔮 Forecasting Models</div>
+        <div class="skill-pill">📈 Data Visualization</div>
+        <div class="skill-pill">🧠 Deep Learning</div>
+        <div class="skill-pill">⚛ Quantum AI</div>
+        <div class="skill-pill">🌐 Web Development</div>
+        <div class="skill-pill">🐍 Python / Jupyter</div>
+        <div class="skill-pill">📊 XGBoost / LightGBM</div>
+        <div class="skill-pill">🔁 LSTM / GRU / CNN</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="section section-dark" id="conclusion">
+    <div class="container">
+      <div class="conclusion-inner fade-in">
+        <div class="section-label">Conclusion</div>
+        <h2>AI for a Greener Future</h2>
+        <p>
+          This project demonstrates the ability to design and implement complete AI pipelines for real-world energy forecasting, 
+          from raw time-series data to production-ready predictive models. The work combines deep data science expertise — 
+          spanning classical statistics, gradient boosting, recurrent networks, and quantum AI — with a focus on practical 
+          impact in the renewable energy sector.
+        </p>
+        <p>
+          Future directions include richer multi-site datasets, transformer-based architectures, and more mature quantum 
+          hardware environments to further unlock the potential of quantum machine learning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">⟨WindAI⟩</div>
+        <p class="footer-desc">Wind Power Forecasting using AI Models</p>
+        <div class="footer-links">
+          <a href="https://github.com/insafghouaoua" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/insaf-ghouaoua-855531220/" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+        <p class="footer-copy">© 2025 · Built with passion for renewable energy & AI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
